@@ -13,6 +13,7 @@ class Book:
         # Return a formatted string representation of the book
         return f"{self.title} by {self.author} ({self.genre}, {self.year})"
 
+
 class Bookshelf:
     """Bookshelf class that represents a collection of books."""
 
