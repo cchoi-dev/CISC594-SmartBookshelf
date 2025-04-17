@@ -37,9 +37,7 @@ class BookSorter:
         Returns:
         - list of books sorted based on the specified key
         """
-        # print("LENGBOOK", len(books))
         if len(books) < 2:
-            # print("Tamo aqui")
             return books
         else:
             pivot = books[0]
@@ -47,6 +45,3 @@ class BookSorter:
             less = [i for i in books[1:] if getattr(i, key) <= getattr(pivot, key)]
             greater = [i for i in books[1:] if getattr(i, key) > getattr(pivot, key)]
             return BookSorter.sort_books(less, key) + [pivot] + BookSorter.sort_books(greater, key)
-            # less = [i for i in arr[1:] if i <= pivot]
-            # greater = [i for i in arr[1:] if i > pivot]
-            # return quicksort(less) + [pivot] + quicksort(greater)
