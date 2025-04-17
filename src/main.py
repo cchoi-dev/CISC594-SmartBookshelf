@@ -16,22 +16,22 @@ if __name__ == '__main__':
     print("Printing the shelf before sorting")
     shelf.display_books()
 
-    BookSorter.selection_sort(shelf.books, 'title')
+    shelf.books = BookSorter.sort_books(shelf.books, 'title')
     print()
     print("Displaying the bookshelf after sorting by title")
     shelf.display_books()
 
-    BookSorter.selection_sort(shelf.books, 'author')
+    shelf.books = BookSorter.sort_books(shelf.books, 'author')
     print()
     print("Displaying the bookshelf after sorting by author")
     shelf.display_books()
 
-    BookSorter.selection_sort(shelf.books, 'genre')
+    shelf.books = BookSorter.sort_books(shelf.books, 'genre')
     print()
     print("Displaying the bookshelf after sorting by genre")
     shelf.display_books()
 
-    BookSorter.selection_sort(shelf.books, 'year')
+    shelf.books = BookSorter.sort_books(shelf.books, 'year')
     print()
     print("Displaying the bookshelf after sorting by year")
     shelf.display_books()

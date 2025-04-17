@@ -1,5 +1,6 @@
 class BookSorter:
     @staticmethod
+    @DeprecationWarning
     def selection_sort(books, key):
         """
         Sort the list of books using the Selection Sort algorithm.
@@ -22,3 +23,25 @@ class BookSorter:
             # Swap the found minimum with the current position
             books[i], books[min_idx] = books[min_idx], books[i]
         return books
+
+    @staticmethod
+    def sort_books(books, key):
+        """
+        Quicksort implementation for sorting through the books in
+        a bookshelf.
+
+        Parameters:
+        - books (list): List of Book objects to sort
+        - key (str): Attribute name (e.g., 'title', 'author', 'year', 'genre') to sort books by
+
+        Returns:
+        - list of books sorted based on the specified key
+        """
+        if len(books) < 2:
+            return books
+        else:
+            pivot = books[0]
+            pivot_val = getattr(pivot, key)
+            less = [i for i in books[1:] if getattr(i, key) <= getattr(pivot, key)]
+            greater = [i for i in books[1:] if getattr(i, key) > getattr(pivot, key)]
+            return BookSorter.sort_books(less, key) + [pivot] + BookSorter.sort_books(greater, key)
